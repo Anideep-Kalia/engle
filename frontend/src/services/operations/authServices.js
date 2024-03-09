@@ -2,8 +2,6 @@ import { auth, db } from "../firebase";
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-
-
 export const signup = async (email, password, username) => {
 
   let error = "";
@@ -44,9 +42,6 @@ export const signup = async (email, password, username) => {
   return { error };
 };
 
-
-
-
 export const signin = async (email, password) => {
 
   let error = "";
@@ -77,7 +72,6 @@ export const signin = async (email, password) => {
   } catch (err) {
     error = err.message;
   }
-
   return { error};
 }
 
@@ -90,7 +84,7 @@ export const logout = () => {
 
 
 export const forgotPassword = async ({ useremail, navigate }) => {
-  try {
+  try{
     await auth.sendPasswordResetEmail(useremail).then(() => {
       navigate("/");
       toast.success("email verification link sent successfully to your email");
